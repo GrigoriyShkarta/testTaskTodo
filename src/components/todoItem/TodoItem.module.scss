@@ -1,0 +1,95 @@
+@import "../../utils/vars";
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  list-style-type: none;
+  width: 450px;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #eee;
+  transition: 0.2s;
+
+  span {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &_checked {
+    color: #888;
+    text-decoration: line-through;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 24px;
+      left: -15px;
+      border-color: #5fb3b6;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      height: 10px;
+      width: 5px;
+    }
+  }
+
+  &_current {
+    &::before {
+      content: '★';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      color: yellow;
+      transform: translateY(-50%);
+      font-size: 18px;
+    }
+  }
+}
+
+.input_edit {
+  height: 35px;
+  width: 210px;
+  outline: none;
+  border-radius: 10px;
+  padding-left: 10px;
+  border: 2px solid #cccccc;
+}
+
+.btnWrapper {
+  display: flex;
+
+  &__save {
+    @include btn;
+    background-color: #4caf50;
+  }
+
+  &__cancel {
+    @include btn;
+    background-color: #f34336;
+  }
+
+  &__done {
+    @include btn;
+    background-color: #4caf50;
+  }
+
+  &_delete {
+    @include btn;
+    background-color: #f34336;
+  }
+
+  &_edit {
+    @include btn;
+    background-color: #815a36;
+  }
+
+  &_current {
+    @include btn;
+    background-color: #fcd703;
+  }
+}
+
